@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  mount SolidusStripe::Engine, at: '/solidus_stripe'
   mount SolidusPaypalCommercePlatform::Engine, at: '/solidus_paypal_commerce_platform'
-  root to: 'home#index'
+  #root to: 'home#index'
+  root to: 'intros#intro'
+  get 'home/index'
 
   devise_for(:user, {
     class_name: 'Spree::User',
